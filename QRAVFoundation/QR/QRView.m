@@ -50,7 +50,7 @@
 
 #pragma mark 启动定时器
 - (void)fireTimer{
-     NSLog(@"启动定时器");
+    NSLog(@"启动定时器");
     if (_timer) {
         [_timer invalidate];
         _timer = nil;
@@ -75,16 +75,16 @@
 - (void)show {
     [UIView animateWithDuration:kQrLineanimateDuration animations:^{
         CGRect rect = self.qrLine.frame;
-        rect.origin.y = _qrLineY;
+        rect.origin.y = self->_qrLineY;
         self.qrLine.frame = rect;
         
     } completion:^(BOOL finished) {
         
         CGFloat maxBorder = (kAppHeight  + ktransparentAreaHeight) *0.5 - 12;
-        if (_qrLineY > maxBorder) {
-            _qrLineY = (kAppHeight  - ktransparentAreaHeight) * 0.5;
+        if (self->_qrLineY > maxBorder) {
+            self->_qrLineY = (kAppHeight  - ktransparentAreaHeight) * 0.5;
         }
-        _qrLineY++;
+        self->_qrLineY++;
     }];
 }
 

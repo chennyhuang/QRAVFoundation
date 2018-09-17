@@ -236,6 +236,7 @@
 				TargetAttributes = {
 					EE606D411BE459DD0045FB80 = {
 						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = CU5KU23LFX;
 					};
 					EE606D5A1BE459DD0045FB80 = {
 						CreatedOnToolsVersion = 7.1;
@@ -445,6 +446,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = CU5KU23LFX;
 				INFOPLIST_FILE = QRAVFoundation/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -457,6 +459,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = CU5KU23LFX;
 				INFOPLIST_FILE = QRAVFoundation/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -532,6 +535,7 @@
 				EE606D711BE459DD0045FB80 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EE606D721BE459DD0045FB80 /* Build configuration list for PBXNativeTarget "QRAVFoundationTests" */ = {
 			isa = XCConfigurationList;
@@ -540,6 +544,7 @@
 				EE606D741BE459DD0045FB80 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EE606D751BE459DD0045FB80 /* Build configuration list for PBXNativeTarget "QRAVFoundationUITests" */ = {
 			isa = XCConfigurationList;
@@ -548,6 +553,7 @@
 				EE606D771BE459DD0045FB80 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

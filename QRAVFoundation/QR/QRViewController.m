@@ -57,7 +57,7 @@
     self.view.backgroundColor = [UIColor blackColor];
     [self.view addSubview:self.backButton];
     [self.view addSubview:self.topMsgLabel];
-
+    
     UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
     self.indicator = indicator;
     indicator.center = self.view.center;
@@ -153,12 +153,15 @@
 }
 
 - (void)showAlert {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示"
-                                                    message:@"请在设备的\"设置-隐私-相机\"中允许访问相机。"
-                                                   delegate:nil
-                                          cancelButtonTitle:@"确定"
-                                          otherButtonTitles:nil];
-    [alert show];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:@"请在设备的\"设置-隐私-相机\"中允许访问相机。" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    UIAlertAction *sureAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    }];
+    [alertController addAction:sureAction];
+    [alertController addAction:cancelAction];
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 //消失
@@ -178,8 +181,8 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-     self.isAllowReceiveScanResult = YES;
-//     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
+    self.isAllowReceiveScanResult = YES;
+    //     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
     
 }
 
@@ -190,7 +193,7 @@
         [_session startRunning];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"fireScanTimer" object:nil];
     }
-
+    
 }
 
 
@@ -202,14 +205,14 @@
     if (!self.isAllowReceiveScanResult) {
         return;
     }
-     NSLog(@"处理扫描结果");
+    NSLog(@"处理扫描结果");
     if (_session) {
         [_session stopRunning];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"invalidateScanTimer" object:nil];
     }
-   
+    
     self.isAllowReceiveScanResult = NO;
-//    AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+    //    AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
     NSString *stringValue;
     if ([metadataObjects count] >0)
     {
@@ -219,7 +222,7 @@
         stringValue = metadataObject.stringValue;
     }
     if (self.qrUrlBlock) {
-            self.qrUrlBlock(stringValue);
+        self.qrUrlBlock(stringValue);
     }
     [self.navigationController popViewControllerAnimated:YES];
 }
